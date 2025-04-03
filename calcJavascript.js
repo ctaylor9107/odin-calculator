@@ -18,6 +18,8 @@ let firstNumber = "";
 let secondNumber = "";
 let operator = "";
 
+let displayContent = 0;
+
 function operate (operation) {
     if (operation === "+") {
         return addition (firstNumber, secondNumber)
@@ -32,6 +34,17 @@ function operate (operation) {
         return division (firstNumber, secondNumber)
     };
 };
+
+const numButtons = document.querySelectorAll(".number");
+const displayValue = document.querySelector("#display");
+
+numButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        console.log(button.textContent);
+        displayValue.textContent = button.textContent;  
+    });
+
+});
 
 
 console.log(division(16,5));

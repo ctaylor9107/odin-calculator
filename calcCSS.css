@@ -8,7 +8,7 @@
     flex-direction: column;
 }
 
-.display {
+#display {
     border: 2px solid black;
     width: 391px;
     height: 100px;
