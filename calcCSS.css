@@ -5,17 +5,37 @@
     margin-top: 75px;
     border-radius: 1%;
     display: flex;
-    justify-content: center;
-    padding: 4px;
+    flex-direction: column;
 }
 
-#display {
+.display {
     border: 2px solid black;
-    width: 398px;
+    width: 391px;
     height: 100px;
     text-align: end;
     font-size: 2.3cm;
     padding-right: 5px;
+}
+
+.row {
+    width: 400px;
+    height: 85px;
+    display: flex;
+}
+
+#clear{
+    width: 298px;
+    margin: 2px;
+}
+
+button {
+    width: 96px;
+    margin: 2px;
+    font-size: .75cm;
+}
+
+#zero {
+    width: 196px;
 }
 
 #container {
