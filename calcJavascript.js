@@ -41,7 +41,15 @@ const displayValue = document.querySelector("#display");
 numButtons.forEach((button) => {
     button.addEventListener("click", () => {
         console.log(button.textContent);
-        displayValue.textContent = button.textContent;  
+        if (displayValue.textContent == 0) {
+            displayValue.textContent = button.textContent;
+        }
+        else if (displayValue.textContent.length === 9) {
+            ""
+        }
+        else {
+        displayValue.textContent += button.textContent;  
+        }
     });
 
 });
