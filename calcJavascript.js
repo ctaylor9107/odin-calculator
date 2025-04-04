@@ -47,6 +47,14 @@ numButtons.forEach((button) => {
         else if (displayValue.textContent.length === 9) {
             ""
         }
+        else if (button.textContent == ".") {
+            if (displayValue.textContent.includes(".")) {
+                ""
+            }
+            else {
+                displayValue.textContent += button.textContent;
+            };
+        }
         else {
         displayValue.textContent += button.textContent;  
         }
