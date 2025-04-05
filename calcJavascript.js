@@ -104,18 +104,24 @@ numButtons.forEach((button) => {
             console.log(displayContent);
         }
         else if (firstNumber !== "") {
-            if (displayContent.length === 9) {
+            if (displayContent == 0) {
+                displayContent = (displayValue.textContent = button.textContent);
+                secondNumber = displayContent;
+            }
+            else if (displayContent.length === 9) {
                 ""
             }
             else if (button.textContent == ".") {
                 if (displayContent === "") {
                     displayContent = (displayValue.textContent = button.textContent);
+                    secondNumber = displayContent;
                 }
                 else if (displayValue.textContent.includes(".")) {
                     ""
                 }
                 else {
                     displayContent = (displayValue.textContent += button.textContent);
+                    secondNumber = displayContent;
                 };
             // displayValue.textContent = displayContent;
             }
@@ -146,7 +152,7 @@ opButtons.forEach((button) => {
     button.addEventListener("click", () => {
         if (operator === "" && firstNumber === "") {
             firstNumber = displayContent;
-            displayContent = "";
+            displayContent = 0;
             operator = button.textContent;
             console.log(operator);
             console.log(firstNumber);
@@ -156,7 +162,7 @@ opButtons.forEach((button) => {
             console.log(operator)
         }
         else if (operator === "" && firstNumber !== "") {
-            displayContent = "";
+            displayContent = 0;
             operator = button.textContent;
             console.log(operator);
             console.log(firstNumber);
@@ -194,6 +200,10 @@ equalButton.addEventListener("click", () => {
         operator = "";
         displayContent = 0;
     }
+
+    else if (firstNumber === "" || secondNumber === "" || operator === "") {
+        "";
+    }
     
     else {
         firstNumber = operate(operator);
@@ -206,7 +216,7 @@ equalButton.addEventListener("click", () => {
 
         if (lengthCheck.length <= 9) {
             displayValue.textContent = firstNumber;
-            displayContent = "";
+            displayContent = 0;
             secondNumber = "";
             operator = "";
         }
@@ -221,4 +231,16 @@ equalButton.addEventListener("click", () => {
     };
 });
 
+
+
+const clearButton = document.querySelector("#clear")
+
+
+clearButton.addEventListener("click", () => {
+    firstNumber = "";
+    secondNumber = "";
+    displayContent = 0;
+    operator = "";
+    displayValue.textContent = 0;
+});
 
