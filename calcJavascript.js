@@ -108,7 +108,10 @@ numButtons.forEach((button) => {
                 ""
             }
             else if (button.textContent == ".") {
-                if (displayValue.textContent.includes(".")) {
+                if (displayContent === "") {
+                    displayContent = (displayValue.textContent = button.textContent);
+                }
+                else if (displayValue.textContent.includes(".")) {
                     ""
                 }
                 else {
@@ -184,17 +187,38 @@ const equalButton = document.querySelector("#equals")
 
 
 equalButton.addEventListener("click", () => {
-    firstNumber = operate(operator);
-
-    if (firstNumber % 1 !== 0) {
-        firstNumber = firstNumber.toFixed(2);
+    if (operator == "/" && secondNumber === "0") {
+        displayValue.textContent = "Just Stop"
+        firstNumber = "";
+        secondnumber = "";
+        operator = "";
+        displayContent = 0;
     }
+    
+    else {
+        firstNumber = operate(operator);
 
+        if (firstNumber % 1 !== 0) {
+            firstNumber = firstNumber.toFixed(2);
+        }
+        
+        lengthCheck = firstNumber.toString();
 
-    displayValue.textContent = firstNumber;
-    displayContent = "";
-    secondNumber = "";
-    operator = "";
-    console.log(firstNumber);
+        if (lengthCheck.length <= 9) {
+            displayValue.textContent = firstNumber;
+            displayContent = "";
+            secondNumber = "";
+            operator = "";
+        }
+
+        else if (lengthCheck.length > 9) {
+            displayValue.textContent = "Overflow"
+            firstNumber = "";
+            secondNumber = "";
+            operator = "";
+            displayContent = 0;
+        }
+    };
 });
+
 
