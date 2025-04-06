@@ -159,16 +159,22 @@ opButtons.forEach((button) => {
             operator = button.textContent;
             console.log(operator);
             console.log(firstNumber);
+            button.style.cssText = "opacity: .5";
         }
         else if (operator !== "") {
             operator = button.textContent;
             console.log(operator)
+            opButtons.forEach((button) => {
+                button.style.cssText = "opacity: none"
+            })
+            button.style.cssText = "opacity: .5";
         }
         else if (operator === "" && firstNumber !== "") {
             displayContent = 0;
             operator = button.textContent;
             console.log(operator);
             console.log(firstNumber);
+            button.style.cssText = "opacity: 0.5";
         };
     });
 });
@@ -202,6 +208,9 @@ equalButton.addEventListener("click", () => {
         secondNumber = "";
         operator = "";
         displayContent = 0;
+        opButtons.forEach((button) => {
+            button.style.cssText = "opacity: none"
+        })
     }
 
     else if (firstNumber === "" || secondNumber === "" || operator === "") {
@@ -223,7 +232,10 @@ equalButton.addEventListener("click", () => {
             secondNumber = "";
             operator = "";
             console.log(displayContent);
-        }
+            opButtons.forEach((button) => {
+                button.style.cssText = "opacity: none"
+            })
+        }   
 
         else if (lengthCheck.length > 9) {
             displayValue.textContent = "Overflow"
@@ -231,9 +243,12 @@ equalButton.addEventListener("click", () => {
             secondNumber = "";
             operator = "";
             displayContent = 0;
+            opButtons.forEach((button) => {
+                button.style.cssText = "opacity: none"
+            })
         }
     };
-});
+})
 
 
 
@@ -246,5 +261,8 @@ clearButton.addEventListener("click", () => {
     displayContent = 0;
     operator = "";
     displayValue.textContent = 0;
+    opButtons.forEach((button) => {
+        button.style.cssText = "opacity: none"
+    })
 });
 
