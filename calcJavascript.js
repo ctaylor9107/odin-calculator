@@ -82,7 +82,14 @@ const opButtons = document.querySelectorAll(".operator");
 
 numButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        if (displayValue.textContent === "Overflow" || displayValue.textContent === "Just Stop") {
+        if (firstNumber !== "" && operator === "") {
+            firstNumber = "";
+            displayContent = (displayValue.textContent = button.textContent);
+            console.log(displayContent);
+            console.log(firstNumber);
+        }
+
+        else if (displayValue.textContent === "Overflow" || displayValue.textContent === "Just Stop") {
             displayContent = (displayValue.textContent = button.textContent);
         }        
         else if (operator === "" && firstNumber === "") {
