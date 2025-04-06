@@ -106,9 +106,10 @@ numButtons.forEach((button) => {
             console.log(displayContent);
         }
         else if (firstNumber !== "") {
-            if (displayContent == 0 && !displayValue.textContent.includes(".")) {
+            if (displayContent == 0 && !secondNumber.includes(".")) {
                 displayContent = (displayValue.textContent = button.textContent);
                 secondNumber = displayContent;
+                console.log(secondNumber);
             }
             else if (displayContent.length === 9) {
                 ""
@@ -129,7 +130,7 @@ numButtons.forEach((button) => {
             }
             else {
             displayContent += button.textContent;
-            secondNumber = displayContent
+            secondNumber = displayContent;
             displayValue.textContent = secondNumber;
             console.log(secondNumber);
             }
@@ -221,6 +222,7 @@ equalButton.addEventListener("click", () => {
             displayContent = 0;
             secondNumber = "";
             operator = "";
+            console.log(displayContent);
         }
 
         else if (lengthCheck.length > 9) {
