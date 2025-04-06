@@ -2,6 +2,9 @@
 
 
 
+//functions to be used for calculations
+
+
 function addition (number1, number2) {
     return number1 + number2
 };
@@ -22,10 +25,7 @@ function division (number1, number2) {
 
 
 
-
-
-
-
+//variables for calculations
 
 
 let firstNumber = "";
@@ -37,9 +37,7 @@ let displayContent = 0;
 
 
 
-
-
-
+//operate function that calls specific calculation function based on operator
 
 
 function operate (operation) {
@@ -62,22 +60,20 @@ function operate (operation) {
 
 
 
-
-
-
+//variables to be used for buttons in the DOM
 
 
 const numButtons = document.querySelectorAll(".number");
 const displayValue = document.querySelector("#display");
 const opButtons = document.querySelectorAll(".operator");
+const equalButton = document.querySelector("#equals")
+const clearButton = document.querySelector("#clear")
 
 
 
 
 
-
-
-
+//logic for when number buttons are clicked
 
 
 numButtons.forEach((button) => {
@@ -85,10 +81,7 @@ numButtons.forEach((button) => {
         if (firstNumber !== "" && operator === "") {
             firstNumber = "";
             displayContent = (displayValue.textContent = button.textContent);
-            console.log(displayContent);
-            console.log(firstNumber);
         }
-
         else if (displayValue.textContent === "Overflow" || displayValue.textContent === "Just Stop") {
             displayContent = (displayValue.textContent = button.textContent);
         }        
@@ -110,13 +103,11 @@ numButtons.forEach((button) => {
             else {
             displayContent = (displayValue.textContent += button.textContent);
             }
-            console.log(displayContent);
         }
         else if (firstNumber !== "") {
             if (displayContent == 0 && !secondNumber.includes(".")) {
                 displayContent = (displayValue.textContent = button.textContent);
                 secondNumber = displayContent;
-                console.log(secondNumber);
             }
             else if (displayContent.length === 9) {
                 ""
@@ -133,13 +124,11 @@ numButtons.forEach((button) => {
                     displayContent = (displayValue.textContent += button.textContent);
                     secondNumber = displayContent;
                 };
-            // displayValue.textContent = displayContent;
             }
             else {
             displayContent += button.textContent;
             secondNumber = displayContent;
             displayValue.textContent = secondNumber;
-            console.log(secondNumber);
             }
         }
     });
@@ -149,13 +138,7 @@ numButtons.forEach((button) => {
 
 
 
-
-
-
-
-
-
-
+//logic for when operator buttons are clicked
 
 
 opButtons.forEach((button) => {
@@ -164,13 +147,10 @@ opButtons.forEach((button) => {
             firstNumber = displayContent;
             displayContent = 0;
             operator = button.textContent;
-            console.log(operator);
-            console.log(firstNumber);
             button.style.cssText = "opacity: .5";
         }
         else if (operator !== "") {
             operator = button.textContent;
-            console.log(operator)
             opButtons.forEach((button) => {
                 button.style.cssText = "opacity: none"
             })
@@ -179,8 +159,6 @@ opButtons.forEach((button) => {
         else if (operator === "" && firstNumber !== "") {
             displayContent = 0;
             operator = button.textContent;
-            console.log(operator);
-            console.log(firstNumber);
             button.style.cssText = "opacity: 0.5";
         };
     });
@@ -191,21 +169,7 @@ opButtons.forEach((button) => {
 
 
 
-
-
-
-
-
-
-
-
-
-const equalButton = document.querySelector("#equals")
-
-
-
-
-
+//logic for when the equal button is clicked
 
 
 equalButton.addEventListener("click", () => {
@@ -238,7 +202,6 @@ equalButton.addEventListener("click", () => {
             displayContent = 0;
             secondNumber = "";
             operator = "";
-            console.log(displayContent);
             opButtons.forEach((button) => {
                 button.style.cssText = "opacity: none"
             })
@@ -259,8 +222,9 @@ equalButton.addEventListener("click", () => {
 
 
 
-const clearButton = document.querySelector("#clear")
 
+
+//logic for when the clear button is clicked
 
 clearButton.addEventListener("click", () => {
     firstNumber = "";
