@@ -83,7 +83,7 @@ numButtons.forEach((button) => {
             displayContent = (displayValue.textContent = button.textContent);
         }
         else if (displayValue.textContent === "Overflow" || displayValue.textContent === "Just Stop") {
-            displayContent = (displayValue.textContent = button.textContent);
+            "";
         }        
         else if (operator === "" && firstNumber === "") {
             if (displayValue.textContent == 0 && !displayValue.textContent.includes(".")) {
